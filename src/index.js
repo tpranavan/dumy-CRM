@@ -22,7 +22,8 @@ async function buildApp() {
     ajv: {
       customOptions: {
         strict: false, // Allow 'example' keyword in schemas
-        removeAdditional: false
+        removeAdditional: false,
+        validateFormats: false // Disable format validation for better compatibility
       }
     }
   });

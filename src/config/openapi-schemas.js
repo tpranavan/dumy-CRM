@@ -193,7 +193,7 @@ export const openApiSchemas = {
           timestamp: {
             type: 'string',
             format: 'date-time',
-            description: 'Error timestamp',
+            description: 'Error timestamp (optional)',
             example: '2024-01-15T10:30:00Z'
           },
           details: {
@@ -210,10 +210,17 @@ export const openApiSchemas = {
                   type: 'string',
                   example: 'Invalid email format'
                 }
-              }
+              },
+              required: ['field', 'message']
             }
+          },
+          stack: {
+            type: 'string',
+            description: 'Error stack trace (development only)',
+            example: 'Error: ...'
           }
-        }
+        },
+        additionalProperties: true
       }
     }
   },
@@ -244,7 +251,7 @@ export const openApiSchemas = {
           timestamp: {
             type: 'string',
             format: 'date-time',
-            description: 'Error timestamp',
+            description: 'Error timestamp (optional)',
             example: '2024-01-15T10:30:00Z'
           },
           details: {
@@ -264,10 +271,12 @@ export const openApiSchemas = {
                   description: 'Validation error message',
                   example: 'Invalid email format'
                 }
-              }
+              },
+              additionalProperties: false
             }
           }
-        }
+        },
+        additionalProperties: true
       }
     }
   },
