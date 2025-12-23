@@ -117,7 +117,51 @@ export const openApiSchemas = {
         example: 'User created successfully'
       },
       data: {
-        $ref: '#/components/schemas/User'
+        type: 'object',
+        required: ['id', 'email', 'isActive', 'createdAt', 'updatedAt'],
+        properties: {
+          id: {
+            type: 'string',
+            format: 'uuid',
+            description: 'Unique user identifier',
+            example: '123e4567-e89b-12d3-a456-426614174000'
+          },
+          email: {
+            type: 'string',
+            format: 'email',
+            description: 'User email address',
+            example: 'user@example.com'
+          },
+          firstName: {
+            type: 'string',
+            nullable: true,
+            description: 'User first name',
+            example: 'John'
+          },
+          lastName: {
+            type: 'string',
+            nullable: true,
+            description: 'User last name',
+            example: 'Doe'
+          },
+          isActive: {
+            type: 'boolean',
+            description: 'User account active status',
+            example: true
+          },
+          createdAt: {
+            type: 'string',
+            format: 'date-time',
+            description: 'User creation timestamp',
+            example: '2024-01-15T10:30:00Z'
+          },
+          updatedAt: {
+            type: 'string',
+            format: 'date-time',
+            description: 'User last update timestamp',
+            example: '2024-01-15T10:30:00Z'
+          }
+        }
       }
     }
   },
